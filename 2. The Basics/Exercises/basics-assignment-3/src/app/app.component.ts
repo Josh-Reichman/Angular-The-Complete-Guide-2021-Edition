@@ -11,7 +11,7 @@ export class AppComponent {
 
   newLog() {
     this.showText = !this.showText;
-    this.logs.push(this.logs.length+1);
+    this.logs.push(new Date());
   }
 
   changeColor() {
