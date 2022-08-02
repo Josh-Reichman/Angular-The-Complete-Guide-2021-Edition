@@ -10,4 +10,11 @@
       </ol>
     </div>
   </div>
+
+  <button class="btn btn-primary" (click)="newLog()"> Display details</button>
+  <p *ngIf="showText"> aaaaaaaa </p>
+  <div [ngStyle]="{backgroundColor: num >=5 ? 'blue': 'transparent'}" [ngClass]="{'white-text': num >=5}"
+       *ngFor="let num of logs" class="list-group-item">
+    {{num}}
+  </div>
 </div>
