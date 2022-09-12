@@ -9,7 +9,10 @@ import {
   OnChanges, OnDestroy,
   OnInit,
   SimpleChanges,
-  ViewEncapsulation
+  ViewEncapsulation,
+  ViewChild,
+  ElementRef,
+  ContentChild
 } from '@angular/core';
 
 @Component({
@@ -29,6 +32,8 @@ export class ServerElementComponent implements OnInit,
 
   @Input() element: {type: string, name: string, content: string};
   @Input() name: string;
+  @ViewChild('heading') header: ElementRef;
+  @ContentChild('contentParagraph') paragraph: ElementRef;
 
   constructor() {
     console.log('constructor called!');
@@ -46,12 +51,14 @@ export class ServerElementComponent implements OnInit,
   }
   ngAfterContentInit(): void {
     console.log('ngAfterContentInit called!');
+    console.log('Paragraph Content: ' + this.paragraph.nativeElement.textContent);
   }
   ngAfterContentChecked(): void {
     console.log('ngAfterContentChecked called!');
   }
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit called!');
+    console.log('Text Content: ' + this.header.nativeElement.textContent);
   }
   ngAfterViewChecked(): void {
     console.log('ngAfterViewChecked called!');
